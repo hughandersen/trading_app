@@ -1,0 +1,29 @@
+
+# docker compose -f docker_compose_test_app.yaml up --build
+
+name: test_app
+services:
+  ibeam:
+    image: voyz/ibeam
+    container_name: ibeam_app
+    env_file:
+      - env.list
+    ports:
+      - 5000:5000
+      - 5001:5001
+    restart: 'no' # Prevents IBEAM_MAX_FAILED_AUTH from being exceeded
+    networks:
+      bot-app:
+        aliases:
+          - ibeam_app
+  
+  bots:
+    image: test_api_connection
+    container_name: test_api_app
+    networks:
+      - bot-app
+
+networks:
+  bot-app: # Can be any name
+    driver: bridge # This will ensure Bridge networking mode is used.
+

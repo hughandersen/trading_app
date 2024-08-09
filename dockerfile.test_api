@@ -1,0 +1,15 @@
+
+#%%
+# create image
+# docker build -t test_api_connection:latest -f dockerfile.test_api .
+
+#create container
+# docker create -it --name test_api_connection --network bridge test_api_connection:latest
+
+
+FROM python:3.12.4-bullseye
+WORKDIR /app
+COPY test_api_connection.py .
+RUN pip install pandas datetime pytz urllib3 requests
+CMD ["python", "test_api_connection.py"]
+
