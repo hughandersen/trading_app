@@ -3,7 +3,7 @@
 ## Introduction    
 This is an attempt to create a trading app using Ibeam to connect to IBKR API, and a trading script.  Ibeam is needed because the IBKR API needs a localhost to be authenticated, although IBKR say that this is changing to Auth2.0.       
 There is no trading methodology here, just a small script to test the connection.     
-The idea is to build a multi-container app, one container hosting Ibeam, and the other hosting the connection script. Then this app can run in the cloud.    
+The idea is to build a multi-container app, one container hosting Ibeam, and the other hosting the connection script, then this app can run in the cloud.    
 The connection between the trading app container and the Ibeam container doesn't work, and has been raised as an issue in the Ibeam Github repo.    
 
 ## Method   
